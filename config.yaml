@@ -1,0 +1,55 @@
+# ============================================================
+# Waste Segregation System - Configuration
+# ============================================================
+
+# --- Dataset ---
+dataset:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+  class_map:
+    paper: "paper_cardboard"
+    cardboard: "paper_cardboard"
+    plastic: "plastic"
+    glass: "miscellaneous"
+    metal: "miscellaneous"
+    trash: "miscellaneous"
+
+# --- Training ---
+training:
+  model: "yolov8n-cls.pt"
+  data: "data/processed"
+  epochs: 50
+  imgsz: 224
+  batch: 32
+  patience: 10
+  lr0: 0.001
+  optimizer: "Adam"
+  project: "runs/classify"
+  name: "waste_segregation"
+  pretrained: true
+  device: ""
+
+# --- Inference ---
+inference:
+  model_path: "runs/classify/waste_segregation/weights/best.pt"
+  confidence_threshold: 0.5
+  imgsz: 224
+  webcam_source: 0
+  display_width: 640
+  display_height: 480
+
+# --- Class Display ---
+classes:
+  paper_cardboard:
+    label: "Paper / Cardboard"
+    color: [0, 165, 255]
+  plastic:
+    label: "Plastic"
+    color: [0, 255, 0]
+  miscellaneous:
+    label: "Miscellaneous"
+    color: [0, 0, 255]
