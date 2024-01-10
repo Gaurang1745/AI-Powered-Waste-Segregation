@@ -2,6 +2,7 @@ data/
 
 runs/
 *.pt
+!model/best.pt
 
 __pycache__/
 *.pyc
@@ -19,5 +20,3 @@ venv/
 Thumbs.db
 
 *.cache
-
-
