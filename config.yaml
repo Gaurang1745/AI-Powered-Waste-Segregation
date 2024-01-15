@@ -35,7 +35,7 @@ training:
 
 # --- Inference ---
 inference:
-  model_path: "runs/classify/waste_segregation/weights/best.pt"
+  model_path: "model/best.pt"
   confidence_threshold: 0.5
   imgsz: 224
   webcam_source: 0
